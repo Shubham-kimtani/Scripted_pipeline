@@ -1,0 +1,36 @@
+pipeline {
+   agent{
+       label 'Windows_Node'
+   }
+
+   stages {
+      stage('Git-Checkout') {
+         steps {
+           echo 'CHECKING OUT GIT REPO'
+           git 'https://github.com/Shubham-kimtani/Scripted_pipeline.git'
+         }
+      }
+      stage('Build BATCH FILE') {
+         steps {
+           bat label: 'BATCHHHHHH', script: 'Build'
+         }
+      }
+      stage('UNIT BATCH FILE') {
+         steps {
+           bat label: 'BATCHHHHHH', script: 'Unit'
+         }
+      }
+      stage('Quality BATCH FILE') {
+         steps {
+           bat label: '', script: 'Quality'
+         }
+      }
+      stage('Deploy BATCH FILE') {
+         steps {
+           bat label: '', script: 'Deploy'
+         }
+      }
+      
+      
+   }
+}
